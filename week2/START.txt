@@ -1,0 +1,52 @@
+START
+	
+	STORE `masa` with 600
+	STORE `percepatan` with 2
+
+	STORE `gaya` with CALCULATE (masa * percepatan)
+
+	DISPLAY `gaya`
+
+END
+
+
+START
+  STORE `angka` with any value
+
+    IF `angka` MOD 4 EQUALS 0 AND `angka` MOD 100 NOT EQUALS 0 THEN
+    	DISPLAY 'TAHUN KABISAT'
+  	ELSE IF `angka` MOD 4 EQUALS 0 AND `angka` MOD 100 EQUALS 0 AND `angkat` MOD 400 EQUALS 0THEN 
+    	DISPLAY 'TAHUN KABISAT'
+    ELSE 
+    	DISPLAY 'BUKAN TAHUN KABISAT'
+    END IF
+END
+
+START
+
+	STORE `full` with 0
+
+	WHILE `full` <= 20
+		ADD `full` by 1
+
+	DISPLAY 'MESIN CUCI SUDAH PENUH'
+END
+
+START
+
+	STORE `KUKU` with STRING
+	STORE `murid` WITH 0
+
+	WHILE `murid` <= 40
+
+		IF `KUKU` EQUAL TO 'PANJANG' THEN
+			DO 'HUKUM MURID'
+		ELSE 
+			DO 'PUJI MURID'
+		END IF 
+
+	ADD `murid` by 1
+
+	DISPLAY 'SEMUA MURID SUDAH DIPERIKSA'
+
+END
