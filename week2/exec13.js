@@ -8,7 +8,7 @@ while(count < str2){
     if(str[count] === "o"){
         sio++;
         //console.log("o"+sio)
-    }else{
+    }else if(str[count] === "x"){
         six++;
         //console.log("x"+six);
     }
