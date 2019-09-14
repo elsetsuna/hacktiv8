@@ -1,5 +1,6 @@
 function deepSum (arr) {
-    if(arr === undefined){
+  
+    if(arr.length === 0){
         return "no number";
     }
   // Code disini

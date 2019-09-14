@@ -1,5 +1,5 @@
 function countProfit(shoppers) {
-    if(shoppers === undefined){
+    if(shoppers.length === 0){
         return "asd";
     }
   let listBarang = [ ['Sepatu Stacattu', 1500000, 10],
