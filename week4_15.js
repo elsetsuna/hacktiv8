@@ -1,26 +1,39 @@
 function highestScore (students) {
+  if(students.length === undefined){
+    return {}
+  }
     result = {}
-    // Code disini
-    var kelas = [];
 
     for(i=0;i < students.length ; i++){
-        var temp = {}
-        kelas = students[i].class
-        nama = students[i].name
-        skor = students[i].score
-        if(Object.keys(result).length === 0){
-            temp["name"] = nama
-            temp["score"] = skor
-
-            result[kelas] = temp;
-        }else{
-
-        }
-        console.log(result[kelas]["score"])
-        //console.log(result.kelas.score)
-
+      if(!(students[i].class in result)){
+        result[students[i].class] = {}
+      }
     }
-    //console.log(kelas)
+
+    for(i=0;i < students.length ; i++){
+      var tmp = {}
+      //console.log(i)
+      if(i === 0){
+        tmp["name"] = students[i].name
+        tmp["score"] = students[i].score
+        result[students[i].class] = tmp
+      }else{
+        //console.log(students[i].class)
+        if(result[students[i].class].score !== undefined){
+          //console.log("not")
+          if(students[i].score > result[students[i].class].score){
+            tmp["name"] = students[i].name
+            tmp["score"] = students[i].score
+            result[students[i].class] = tmp
+          }
+        }else{
+          tmp["name"] = students[i].name
+          tmp["score"] = students[i].score
+          result[students[i].class] = tmp
+        }
+      }
+    }
+return result;
   }
   // TEST CASE
   console.log(highestScore([
@@ -87,4 +100,4 @@ function highestScore (students) {
   // }
   
   
-  //console.log(highestScore([])); //{}
+  console.log(highestScore([])); //{}
