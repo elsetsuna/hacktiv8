@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Password Generator JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+<body>
+    <div class="container">
+        <div class="jumbotron mt-3 ">
+            <h3 class="text-center">Your Secure Password is...</h3>
+            <p class="lead text-center"><mark><span id="password"></span></mark></p>
+        </div>
+    </div>
+    <div class="container">
+            <div class="jumbotron">
+                    <form action="#" method="get" onsubmit="generatepassword();">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                        <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="lowerCase" checked="checked">
+                                <label class="form-check-label" for="lowerCase">
+                                        Include lowercase character:
+                                </label>
+                        </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <div class="col-sm-6">
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="upperCase">
+                                    <label class="form-check-label" for="upperCase">
+                                            Include uppercase character:
+                                    </label>
+                            </div>
+                    </div>
+                </div>
+              <div class="form-group row">
+                    <div class="col-sm-6">
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="number">
+                                    <label class="form-check-label" for="number">
+                                            Include Numbers:
+                                    </label>
+                            </div>
+                    </div>
+                </div>
+                  <div class="form-group row">
+                        <div class="col-sm-6">
+                                <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="similar">
+                                        <label class="form-check-label" for="similar">
+                                                Include Similar Character:
+                                        </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-sm-6">
+                                    <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="symbol">
+                                            <label class="form-check-label" for="symbol">
+                                                    Include Symbols:
+                                            </label>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroup-sizing-default">Password Length</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="myInput" placeholder="if empty,6 character will be use">
+                                      </div>
+                                      </div>
+                            </div>
+                        <div class="row">
+                                <div class="col-sm-6">
+                                        <button type="submit" class="btn btn-info btn-lg">Generate !</button>
+                                </div>
+                            </div>
+    </form>
+    </div>
+    </div>
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Copyleft :) Marvin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<script>
+    var passwordelement   = document.getElementById("password");
+
+function generatepassword(){
+    // console.log('a')
+    let passlength = document.getElementById("myInput").value;
+    const upChar = 'ABCDEFGHIJKMNPQRSTUVWXYZ'
+    const lowChar = 'abcdefghjkmnpqrstuvwxyz'
+    const numbers = '23456789'
+    const similar = 'il1Lo0O'
+    const symbols = '!@#$%^&*'
+    let word = ''
+    let result = ''
+    if(passlength == ''){
+            passlength = 6
+    }
+    if(document.getElementById("lowerCase").checked){
+        word += upChar
+    }
+    if(document.getElementById("upperCase").checked){
+        word += lowChar
+    }
+    if(document.getElementById("number").checked){
+        word += numbers
+    }
+    if(document.getElementById("similar").checked){
+        word += similar
+    }
+    if(document.getElementById("symbol").checked ){
+        word += symbols
+    }
+    // console.log(word)
+    const wordLength = word.length - 1
+    for(i=0;i<passlength;i++){
+        result += word[Math.floor(Math.random() * Math.floor(wordLength))]
+    }
+    // console.log(passwordlength)
+    passwordelement.innerHTML = result;
+}
+
+</script>
+</html>
